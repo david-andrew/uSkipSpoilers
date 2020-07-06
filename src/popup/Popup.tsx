@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./Popup.scss";
+// import "./Popup.scss";
 import useClippy from 'use-clippy';
 import {SpoilerRow, parseUrlParams, updateUrlParams} from '../utils'
 import { uuid } from 'uuidv4'
