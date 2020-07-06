@@ -8,9 +8,10 @@ A Chrome extension for seamlessly skipping spoilers in html5 videos
 4. enter the timestamps for each spoiler instance
     - timestamps are in the form `[[HH:]mm:]ss[.ff]`. This means that seconds are required, and then minutes, hours, and fractions of seconds are optional.
     - some examples: 
-        - `643` = 643 seconds, or 10 minutes 43 seconds
-        - `05:24` = 5 minutes 24 seconds
-        - `01:12:13.5` = 1 hour 12 minutes, 13.5 seconds
+        - `643`: 643 seconds, or 10 minutes 43 seconds
+        - `05:24`: 5 minutes 24 seconds
+        - `01:12:13.5`: 1 hour 12 minutes 13.5 seconds
+        - `72:23`: 72 minutes 23 seconds, or 1 hour 12 minutes 23 seconds
 5. Either copy the url, or click "Go to URL" to navigate to your video with the spoiler filters applied
 
 Opening a URL that contains spoiler timestamps will also allow you to edit the timestamps in the extension
