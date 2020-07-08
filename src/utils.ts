@@ -7,6 +7,25 @@ export interface SpoilerRow {
     id: string; //necessary so that the id's of the list elements don't change when you delete rows
 }
 
+//regex defining the format of timestamps stored as url parameters
+export const paramRegEx: RegExp = /(\d+:)?(\d+:)?(\d+)(\.\d+)?/;
+
+const pow = Math.pow;
+const ceil = Math.ceil;
+const log10 = Math.log10;
+export const paramToSeconds = (param: string): number => {
+    const match = param.match(paramRegEx);
+
+    const HH: number = +(match?.[3] ?? '0');
+    const mm: number = +(match?.[4] ?? '0');
+    const ss: number = +(match?.[5] ?? '0');     //this should never be undefined
+    const ff: number = +(match?.[7] ?? '0');
+
+    const seconds: number = HH*3600 + mm*60 + ss + ff / pow(10, ceil(log10(ff + 1)));
+
+    return seconds;
+}
+
 
 //extract the rows data structure from the given url
 export const parseUrlParams = (url: string) => {

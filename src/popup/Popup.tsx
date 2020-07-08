@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-// import "./Popup.scss";
 import useClippy from 'use-clippy';
-import {SpoilerRow, parseUrlParams, updateUrlParams} from '../utils'
+import { SpoilerRow, parseUrlParams, updateUrlParams, paramRegEx } from '../utils'
 import { uuid } from 'uuidv4'
 
 
@@ -80,8 +79,7 @@ export default function Popup() {
 
     //validate the data the user has entered
     const validRows: boolean[][] = rows.map((row: SpoilerRow) => {
-        const re = RegExp(/(\d+:)?(\d+:)?\d+(\.\d+)?/);
-        return [!re.test(row.startText), !re.test(row.stopText)];
+        return [!paramRegEx.test(row.startText), !paramRegEx.test(row.stopText)];
     });
 
     //if any fields invalid, then disable the copy and navigate buttons. Also disable buttons if no rows exist
