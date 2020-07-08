@@ -7,8 +7,8 @@ export interface SpoilerRow {
     id: string; //necessary so that the id's of the list elements don't change when you delete rows
 }
 
-//regex defining the format of timestamps stored as url parameters
-export const paramRegEx: RegExp = /(\d+:)?(\d+:)?(\d+)(\.\d+)?/;
+//regex defining the format of timestamps stored as url parameters. timestamps are of the format [[hh:]mm:]ss[.ff]
+export const paramRegEx: RegExp = /(((\d+):)?(\d+):)?(\d+)(\.(\d+))?/;
 
 const pow = Math.pow;
 const ceil = Math.ceil;
