@@ -1,11 +1,20 @@
 import { uuid } from 'uuidv4'
 
-//represent the times of spoilers to block
+//represent the raw URL parameters for times of spoilers to block
 export interface SpoilerRow {
     startText: string;
     stopText: string;
     id: string; //necessary so that the id's of the list elements don't change when you delete rows
 }
+
+//represent the numerical times to block in seconds
+export interface SpoilerBounds {
+    start: number;
+    stop: number;
+}
+
+//function to indicate if a time is within the given bounds
+export const isInBounds = (bounds: SpoilerBounds, time: number): boolean => time >= bounds.start && time <= bounds.stop;
 
 //regex defining the format of timestamps stored as url parameters. timestamps are of the format [[hh:]mm:]ss[.ff]
 export const paramRegEx: RegExp = /(((\d+):)?(\d+):)?(\d+)(\.(\d+))?/;
