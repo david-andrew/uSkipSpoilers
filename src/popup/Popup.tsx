@@ -106,11 +106,11 @@ export default function Popup() {
                                     <div key={`spoiler${row.id}`}>
                                         <div style={{margin:'5px'}}>
                                             <label style={{padding:'5px'}}>Start</label>
-                                            <input style={startError ? errorStyle : {}} type='text' placeholder='[HH:mm:]ss[.fff]' value={row.startText} onChange={(event) => onSpoilerRowStartChange(event, i)} />
+                                            <input style={startError ? errorStyle : {}} type='text' placeholder='[[HH:]mm:]ss[.fff]' value={row.startText} onChange={(event) => onSpoilerRowStartChange(event, i)} />
                                         </div>
                                         <div style={{margin:'5px'}}>
                                             <label style={{padding:'5px'}}>Stop</label>
-                                            <input style={stopError ? errorStyle : {}} type='text' placeholder='[HH:mm:]ss[.fff]' value={row.stopText} onChange={(event) => onSpoilerRowStopChange(event, i)} />
+                                            <input style={stopError ? errorStyle : {}} type='text' placeholder='[[HH:]mm:]ss[.fff]' value={row.stopText} onChange={(event) => onSpoilerRowStopChange(event, i)} />
                                         </div>
                                         <button onClick={() => onRemoveSpoiler(i)}>remove</button>
                                         <hr/>
