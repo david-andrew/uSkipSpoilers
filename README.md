@@ -16,10 +16,17 @@ A Chrome extension for seamlessly skipping spoilers in html5 videos
 
 Opening a URL that contains spoiler timestamps will also allow you to edit the timestamps in the extension
 
-
 ## Bugs to fix
 - closing the popup unloads any times that were entered. These should be saved unless you reload the page
 - layout of elements in the popup is wonky. Everything should be converted to display: inline-block, or perhaps flexbox
+- if video is already muted, video becomes unmuted when a spoiler finishes. Instead we should have a background script that listens for mute messages, and mute the entire tab rather than the video itself
+
+## Things to add
+- make pretty (see if we can get semantic ui react working for the popup, etc.)
+- add optional description to spoilers which display in the spoiler overlay
 
 ## Attribution
 Built from https://github.com/martellaj/chrome-extension-react-typescript-boilerplate
+
+## Bugs & Contributions
+If you would like to report a bug please create an issue. If you would like to contribute, please fork the project, and create a pull request.

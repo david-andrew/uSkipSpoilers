@@ -1,5 +1,6 @@
 import { SpoilerRow, parseUrlParams, paramToSeconds, SpoilerBounds, isInBounds } from './utils';
-
+// import { SpoilerOverlay } from './SpoilerOverlay' //TODO->figure out how to get this working
+// import * as ReactDOM from 'react-dom';
 
 //collect the timestamp string of spoilers from the URL
 const rows: SpoilerRow[] = parseUrlParams(location.href);
@@ -38,7 +39,6 @@ if (rows.length > 0) {
         spoilerOverlay.style.width = '100%';               /* Full width (cover the whole page) */
         spoilerOverlay.style.height = '100%';              /* Full height (cover the whole page) */
         spoilerOverlay.style.backgroundColor = 'black';    /* Black background with opacity */
-        // spoilerOverlay.style.zIndex = '2';                 /* Specify a stack order in case you're using a different order for other elements */
         spoilerOverlay.style.pointerEvents = 'none';       //the cursor cannot interact with the overlay
         spoilerOverlay.style.display = display;            //whether to show ('block') or not show ('none') the overlay. defaults to show
         
@@ -58,6 +58,13 @@ if (rows.length > 0) {
 
         return spoilerOverlay
     }
+    // //TODO->this isn't working...
+    // const getOverlayElement = (id: string, display: 'block' | 'none' = 'block'): HTMLDivElement => {
+    //     const spoilerOverlay = document.createElement('div');
+    //     ReactDOM.render(SpoilerOverlay(id, display), spoilerOverlay)
+    //     return spoilerOverlay;
+    // }
+    
 
     //handle actually applying the overlay the DOM
     const applyOverlay = (video: HTMLVideoElement, currentlySpoilers: boolean, i: number) => {
@@ -121,7 +128,7 @@ if (rows.length > 0) {
         
     }
 
-    //every 500 milliseconds, check the video time
+    //every interval, check the video time
     const refreshInterval = 250; //interval in milliseconds to recheck the video time
     window.setInterval(() => { for (let i = 0; i < videos.length; i++) { handleVideoTimeChanged(i) } }, refreshInterval);
 }
