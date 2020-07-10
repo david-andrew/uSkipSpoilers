@@ -23,6 +23,7 @@ Opening a URL that contains spoiler timestamps will also allow you to edit the t
 
 ## Other Things to Do
 - make pretty (see if we can get semantic ui react working for the popup, etc.)
+- add icon badge for when extension is operating on a page
 - add optional description to spoilers which display in the spoiler overlay
 - move all non-ephemeral files from dist into src, and have the watch script completely rebuild dist every time (e.g. icons, manifest, etc.)
 

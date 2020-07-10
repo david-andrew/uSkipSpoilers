@@ -29,7 +29,15 @@ if (rows.length > 0) {
 
 
     //collect all videos running on this page
-    const videos: HTMLCollectionOf<HTMLVideoElement> = document.getElementsByTagName('video');
+    const videos: HTMLVideoElement[] = Array.from(document.getElementsByTagName('video'));
+    
+    //TODO->handle videos in iframes. This currently doesn't work because of cross origin security restrictions...
+    // const iframes: HTMLIFrameElement[] = Array.from(document.getElementsByTagName('iframe'));
+    // iframes.forEach((iframe: HTMLIFrameElement) => {
+    //     const iframeVideos: HTMLVideoElement[] = Array.from(iframe.contentDocument.getElementsByTagName('video'));
+    //     iframeVideos.forEach((video: HTMLVideoElement) => videos.push(video)); 
+    // });
+
 
     const getOverlayElement = (id: string, display: 'block' | 'none' = 'block'): HTMLDivElement => {
         const spoilerOverlay = document.createElement('div');
